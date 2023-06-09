@@ -23,7 +23,11 @@
                 <td>{{ ninja.first_name }}</td>
                 <td>{{ ninja.last_name }}</td>
                 <td>{{ ninja.age }}</td>
-                <td><a href="/ninjas/{{ ninja.id }}">Show</a> | <a href="/ninjas/{{ ninja.id }}/edit">Edit</a> | <a href="/ninjas/{{ ninja.id }}/delete">Delete</a></td>
+                <!--EDIT AND SHOW NEED TO BE FINISHED PYTHON DONE JUST NEED HTML-->
+                <td><a href="/ninjas/{{ ninja.id }}">Show</a> | 
+                    <a href="/ninjas/{{ ninja.id }}/edit">Edit</a> | 
+                    <a href="/ninjas/{{ ninja.id }}/delete">Delete</a>
+                </td>
             </tr>
             {% endfor %}
         </table>

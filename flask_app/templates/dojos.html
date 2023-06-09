@@ -17,8 +17,10 @@
             </tr>
             {% for dojo in dojos %}
             <tr>
+                <!--EDIT NEEDS TO BE FINISHED PYTHON DONE JUST NEED HTML-->
                 <td><a href ='/dojos/{{ dojo.id }}'>{{ dojo.name }}</a></td>
                 <td> <a href="/dojos/{{ dojo.id }}/edit">Edit</a> | <a href="/dojos/{{ dojo.id }}/delete">Delete</a></td>
+                <!--FIGURE OUT HOW TO DELETE DOJOS WITH NINJAS INSIDE WITHOUT ERROR-->
             </tr>
             {% endfor %}
         </table>

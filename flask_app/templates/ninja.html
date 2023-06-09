@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dojos and Ninjas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>{{ ninja.first_name }}</h1>
+    <h2>{{ ninja.last_name }}</h2>
+    <h2>{{ ninja.age }}</h2>
+    <a href="/dojos">Back to Dojos</a>
+    <img src="{{ url_for('static', filename='images/ninja.jpg') }}" alt="ninja">
+</body>
+</html>
