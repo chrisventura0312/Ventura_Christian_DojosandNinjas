@@ -84,7 +84,9 @@ def update_ninja(id):
         'dojos_id':request.form['dojos_id']
     }
     Ninja.update(data)
-    return redirect('/dojos/' + str(request.form['dojos_id']))
+    print(str(data))
+    return redirect('/dojos/' + str(request.form['dojo_id']))
+
 
 @app.route('/ninjas/<int:id>/delete')
 def delete_ninja(id):
