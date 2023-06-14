@@ -74,7 +74,7 @@ def edit_ninja(id):
     ninja = Ninja.get_one(data)
     return render_template('edit_ninja.html',ninja=ninja)
 
-@app.route('/ninjas/update',methods=['POST'])
+@app.route('/ninjas/<int:id>/update',methods=['POST'])
 def update_ninja(id):
     data = {
         'id':id,
