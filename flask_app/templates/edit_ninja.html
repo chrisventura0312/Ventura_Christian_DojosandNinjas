@@ -8,16 +8,35 @@
 </head>
 <body>
     <h1>Edit Ninja</h1>
-    <form action="/ninjas/{{ ninja.id }}/update" method="post">
-        <input type="hidden" name="_method" value="PUT">
-        <label for="first_name">First Name:</label>
-        <input type="text" name="first_name" id="first_name" value="{{ ninja.first_name }}">
-        <label for="last_name">Last Name:</label>
-        <input type="text" name="last_name" id="last_name" value="{{ ninja.last_name }}">
-        <label for="age">Age:</label>
-        <input type="text" name="age" id="age" value="{{ ninja.age }}">
+    <div id="new_ninja">
+        <form action="/ninjas/{{ ninja.id }}/update" method="post">
+            <div class="lbl_type_n">
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" id="first_name" value="{{ ninja.first_name }}">
+            </div>
+            <div class="lbl_type_n">
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name" id="last_name" value="{{ ninja.last_name }}">
+            </div>
+            <div class="lbl_type_n">
+                <label for="age" id="age">Age:</label>
+                <input type="text" name="age" id="age" value="{{ ninja.age }}">
+            </div>
+            <div class="lbl_type_n">
+                <label for="dojo_id">Dojo:</label>
+                <select name="dojo_id" id="dojo_id">
+                    {% for dojo in dojos %}
+                    <option value="{{ dojo.id }}"
+                    {% if dojo.id == ninja.dojo_id %}
+                    selected
+                    {% endif %}
+                    >{{ dojo.name }}</option>
+                {% endfor %}
+                </select>
+            </div>
         <input type="submit" value="Update">
-    </form>
+        </form>
+    </div>
     <a href="/dojos">Back to Dojos</a>
 </body>
 </html>
