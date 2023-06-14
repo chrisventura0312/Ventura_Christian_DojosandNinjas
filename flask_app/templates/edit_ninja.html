@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dojos and Ninjas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Edit Ninja</h1>
+    <form action="/ninjas/{{ dojos.id }}/update" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name" value="{{ ninja.first_name }}">
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name" value="{{ ninja.last_name }}">
+        <label for="age">Age:</label>
+        <input type="text" name="age" id="age" value="{{ ninja.age }}">
+        <input type="submit" value="Update">
+    </form>
+    <a href="/dojos">Back to Dojos</a>
+</body>
+</html>

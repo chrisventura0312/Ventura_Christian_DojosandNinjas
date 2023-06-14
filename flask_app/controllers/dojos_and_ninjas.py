@@ -16,7 +16,7 @@ def create_dojo():
     Dojo.save(request.form)
     return redirect('/dojos')
 
-@app.route('/dojos/<int:id>')
+@app.route('/dojos/<int:id>') #show dojo and ninjas
 def show_dojo_and_ninjas(id):
     data = {
         'id':id
@@ -66,6 +66,14 @@ def show_ninja(id):
     ninja = Ninja.get_one(data)
     return render_template('ninja.html',ninja=ninja)
 
+@app.route('/ninjas/<int:id>/edit')
+def edit_ninja(id):
+    data = {
+        'id':id,
+    }
+    ninja = Ninja.get_one(data)
+    return render_template('edit_ninja.html',ninja=ninja)
+
 @app.route('/ninjas/<int:id>/update',methods=['POST'])
 def update_ninja(id):
     data = {
@@ -76,14 +84,15 @@ def update_ninja(id):
         'dojos_id':request.form['dojos_id']
     }
     Ninja.update(data)
-    return redirect('/dojos')
+    return redirect('/dojos/' + str(request.form['dojos_id']))
 
 @app.route('/ninjas/<int:id>/delete')
 def delete_ninja(id):
     data = {
         'id':id
     }
+    referer=request.headers.get("Referer") #gets the url of the page that sent the request
     Ninja.delete(data)
-    return redirect('/dojos')
+    return redirect(referer)
 
 
